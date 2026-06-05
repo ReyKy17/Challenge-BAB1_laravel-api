@@ -1,135 +1,58 @@
-# Dokumentasi Pustaka Komponen UI (Challenge 2)
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-Proyek ini berisi kumpulan komponen antarmuka (*User Interface*) yang dapat digunakan kembali (*reusable*) pada aplikasi Laravel menggunakan Blade Component dan Bootstrap 5. Semua komponen yang didokumentasikan di bawah ini dapat ditempatkan di folder `resources/views/components/ui/`.
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
----
+## About Laravel
 
-## Panduan Penggunaan Component
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-### 1. Notification / Alert Component (`<x-ui.alert>`)
-Komponen ini digunakan untuk menampilkan notifikasi singkat, misalnya hasil sukses, peringatan, atau pesan informasi.
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-**Properti yang tersedia:**
-- `type`: `success`, `danger`, `warning`, `info` (default: `info`)
-- `dismissible`: `true` / `false`
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-**Contoh penggunaan:**
-```blade
-<x-ui.alert type="success" dismissible="true">
-    <strong>Berhasil!</strong> Data Anda telah disimpan dengan aman.
-</x-ui.alert>
+## Learning Laravel
 
-<x-ui.alert type="warning">
-    Periksa kembali input yang Anda kirimkan sebelum lanjut.
-</x-ui.alert>
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+
+In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+
+You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+
+## Agentic Development
+
+Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+
+```bash
+composer require laravel/boost --dev
+
+php artisan boost:install
 ```
 
-**Kapan digunakan:**
-- Menampilkan notifikasi setelah submit form
-- Menunjukkan status proses atau validasi
+Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
 
----
+## Contributing
 
-### 2. Card Component (`<x-ui.card>`)
-Komponen ini cocok untuk membungkus isi panel dengan bagian header, body, dan footer yang rapi.
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-**Slot yang tersedia:**
-- `title`: judul card
-- `body`: isi utama card
-- `footer`: bagian bawah card
+## Code of Conduct
 
-**Contoh penggunaan:**
-```blade
-<x-ui.card>
-    <x-slot name="title">Profil Pengguna</x-slot>
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-    <x-slot name="body">
-        <p>Nama: Budi Santoso</p>
-        <p>Status: Aktif</p>
-    </x-slot>
+## Security Vulnerabilities
 
-    <x-slot name="footer">
-        <small class="text-muted">Terakhir diperbarui 5 menit lalu</small>
-    </x-slot>
-</x-ui.card>
-```
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-**Kapan digunakan:**
-- Menampilkan informasi profil, produk, atau dashboard widget
-- Membuat layout panel yang konsisten di seluruh halaman
+## License
 
----
-
-### 3. Badge / Label Component (`<x-ui.badge>`)
-Komponen ini digunakan untuk memberi penanda status, kategori, atau label dengan warna yang dapat disesuaikan.
-
-**Properti yang tersedia:**
-- `color`: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `dark`
-- `pill`: `true` / `false`
-
-**Contoh penggunaan:**
-```blade
-<x-ui.badge color="success">Aktif</x-ui.badge>
-<x-ui.badge color="warning" pill="true">Pending</x-ui.badge>
-<x-ui.badge color="danger">Dibatalkan</x-ui.badge>
-```
-
-**Kapan digunakan:**
-- Menandai status order, user, atau item
-- Menampilkan kategori seperti VIP, Baru, Promo
-
----
-
-### 4. Button Component (`<x-ui.button>`)
-Komponen ini mempermudah pembuatan tombol dengan tampilan yang konsisten dan variasi style.
-
-**Properti yang tersedia:**
-- `variant`: `primary`, `secondary`, `outline`
-- `type`: `button`, `submit`, `reset`
-- `href`: jika ingin tombol menjadi link
-
-**Contoh penggunaan:**
-```blade
-<x-ui.button variant="primary" type="submit">
-    Simpan Data
-</x-ui.button>
-
-<x-ui.button variant="outline" href="/users">
-    Kembali
-</x-ui.button>
-
-<x-ui.button variant="secondary">
-    Batal
-</x-ui.button>
-```
-
-**Kapan digunakan:**
-- Tombol submit pada form
-- Tombol aksi pada daftar data atau detail item
-
----
-
-### 5. Breadcrumb Navigation Component (`<x-ui.breadcrumb>`)
-Komponen ini digunakan untuk menampilkan jalur navigasi halaman agar pengguna tahu posisi mereka saat ini.
-
-**Contoh penggunaan:**
-```blade
-<x-ui.breadcrumb
-    :items="[
-        ['label' => 'Beranda', 'url' => '/'],
-        ['label' => 'Produk', 'url' => '/products'],
-        ['label' => 'Detail Produk']
-    ]" />
-```
-
-**Kapan digunakan:**
-- Halaman dashboard yang memiliki sub-menu
-- Halaman detail produk, artikel, atau transaksi
-
----
-
-## Tips Penggunaan
-- Gunakan komponen ini secara konsisten agar tampilan aplikasi tetap rapi dan seragam.
-- Sesuaikan prop `color`, `variant`, dan `type` dengan kebutuhan halaman.
-- Kombinasikan komponen seperti `card`, `badge`, dan `button` untuk membangun UI yang lebih menarik.
-
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
